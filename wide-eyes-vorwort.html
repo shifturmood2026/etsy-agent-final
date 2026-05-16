@@ -111,6 +111,12 @@ body {
   background: var(--blue2);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 26px;
+  gap: 10px;
 }
 
 .right-bg-num {
@@ -130,16 +136,13 @@ body {
   color: var(--dark);
   line-height: 0.88;
   letter-spacing: 0.01em;
-  position: absolute;
-  bottom: 20px; left: 0; right: 0;
   text-align: center;
 }
 
 .right-title--compact {
   font-size: 50px;
-  line-height: 1.0;
+  line-height: 0.95;
   letter-spacing: 0.02em;
-  bottom: 26px;
 }
 
 /* RUNNING HEADER – Folgeseiten */
@@ -286,9 +289,6 @@ body {
   letter-spacing: 0.38em;
   color: var(--dark);
   opacity: 0.42;
-  position: absolute;
-  top: 52px;
-  left: 0; right: 0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -301,15 +301,14 @@ body {
   letter-spacing: 0.06em;
   line-height: 1;
   flex-shrink: 0;
-  padding-top: 6px;
-  padding-bottom: 2px;
+  margin: 0 -52px 0 -44px;
+  padding: 8px 52px 10px 44px;
   border-bottom: 1.5px solid rgba(24,22,15,0.12);
 }
 
 /* BILDPLATZHALTER */
 .img-placeholder {
-  width: calc(100% + 52px + 44px);
-  margin-left: -44px;
+  margin: 0 -52px 0 -44px;
   background: var(--blue1);
   border-top: 1.5px dashed rgba(24,22,15,0.22);
   border-bottom: 1.5px dashed rgba(24,22,15,0.22);
@@ -467,10 +466,7 @@ body {
   </div>
 
 </div>
-
-
 <div class="page">
-
   <div class="col-left">
     <div class="col-bg-num-clip"><div class="col-bg-num">03</div></div>
     <svg style="position:absolute;top:0;left:0;width:200px;height:1123px;pointer-events:none;z-index:0;overflow:visible;" viewBox="0 0 200 1123" xmlns="http://www.w3.org/2000/svg">
@@ -479,26 +475,20 @@ body {
     </svg>
   </div>
   <div class="col-divider"></div>
-
   <div class="col-right">
-
     <div class="right-top">
       <div class="right-bg-num">01</div>
       <div class="right-subtitle">Kapitel 01</div>
       <div class="right-title right-title--compact">FOKUS &amp;<br>KONZENTRATION</div>
     </div>
-
     <div class="right-divider"></div>
-
     <div class="right-bottom">
 
       <p class="body">Zwei Probleme. Ein Begriff der für viele für beides steht.</p>
 
       <p class="body">Die meisten Menschen die mit ihrem Kopf kämpfen nennen es dasselbe.</p>
 
-      <div class="highlight">
-        <p>Ich kann mich nicht konzentrieren.</p>
-      </div>
+      <div class="highlight"><p>Ich kann mich nicht konzentrieren.</p></div>
 
       <p class="body">Aber wenn man genauer hinhört, beschreiben sie zwei völlig verschiedene Dinge.</p>
 
@@ -512,16 +502,13 @@ body {
 
       <p class="body">Ich lernte sie auf einem Netzwerktreffen kennen. Eine dieser Veranstaltungen bei denen man eigentlich über Geschäftliches redet und am Ende über ganz andere Dinge spricht. Tamara wirkte wie jemand der alles im Griff hat. Anfang dreißig, klare Ausdrucksweise, souverän im Auftreten. Wenn du sie auf der Straße getroffen hättest, wärst du nie auf den Gedanken gekommen dass irgendetwas nicht stimmt.</p>
 
+      <p class="body">Irgendwann sagte sie einen Satz. Fast beiläufig.</p>
+
     </div>
-
     <div class="right-footer"><span class="pg-num">03</span></div>
-
   </div>
-
 </div>
-
 <div class="page">
-
   <div class="col-left">
     <div class="col-bg-num-clip"><div class="col-bg-num">04</div></div>
     <svg style="position:absolute;top:0;left:0;width:200px;height:1123px;pointer-events:none;z-index:0;overflow:visible;" viewBox="0 0 200 1123" xmlns="http://www.w3.org/2000/svg">
@@ -530,31 +517,21 @@ body {
     </svg>
   </div>
   <div class="col-divider"></div>
-
   <div class="col-right">
-
     <div class="right-running">
       <span class="running-label">Wide Eyes</span>
       <span class="running-chapter">Fokus und Konzentration</span>
     </div>
-
     <div class="right-divider"></div>
-
     <div class="right-bottom">
 
-      <p class="body">Irgendwann sagte sie einen Satz. Fast beiläufig.</p>
-
-      <div class="highlight">
-        <p>Ich weiß ehrlich gesagt nicht mehr, wann ich zuletzt wirklich bei einer Sache geblieben bin.</p>
-      </div>
+      <div class="highlight"><p>Ich weiß ehrlich gesagt nicht mehr, wann ich zuletzt wirklich bei einer Sache geblieben bin.</p></div>
 
       <p class="body">Sie lachte kurz danach. So wie man lacht wenn man etwas sagt das eigentlich wehtut, es aber nicht so aussehen lassen will.</p>
 
       <p class="body">Dann sagte sie noch etwas.</p>
 
-      <div class="highlight">
-        <p>Ich tanze auf zu vielen Hochzeiten gleichzeitig. Und ich weiß nicht wie ich damit aufhören soll.</p>
-      </div>
+      <div class="highlight"><p>Ich tanze auf zu vielen Hochzeiten gleichzeitig. Und ich weiß nicht wie ich damit aufhören soll.</p></div>
 
       <p class="body">Tamara hatte Energie. Ihr Problem war nicht dass ihr Kopf nicht konnte. Ihr Problem war dass er nicht bei einer Sache blieb. Er sprang. Ständig.</p>
 
@@ -568,33 +545,19 @@ body {
 
       <p class="section-heading">Fokus</p>
 
-      <div class="highlight">
-        <p>Fokus ist dein Kompass.</p>
-      </div>
+      <div class="highlight"><p>Fokus ist dein Kompass.</p></div>
 
       <p class="body">Er zeigt dir die Richtung. Er ist die Entscheidung welche Aufgabe jetzt zählt, wohin du deine Energie lenkst. Fokus ist das was passiert bevor du überhaupt anfängst.</p>
 
       <p class="body">Stell dir vor dein Kompass ist defekt. Die Nadel dreht sich ständig, zeigt mal hierhin, mal dorthin, findet keine Ruhe. Du bewegst dich viel. Aber am Ende des Tages stehst du fast noch dort, wo du angefangen hast.</p>
 
-      <div class="psych-block">
-        <p>Das ist kein Willensproblem. Das ist ein Kompassproblem.</p>
-      </div>
-
-      <div class="img-placeholder" style="height:100px;">
-        <span class="img-label">Illustration</span>
-        <span class="img-desc">Kompass — rotierende Nadel (Fokusproblem) vs. ruhige Nadel zeigt Norden</span>
-      </div>
+      <div class="psych-block"><p>Das ist kein Willensproblem. Das ist ein Kompassproblem.</p></div>
 
     </div>
-
     <div class="right-footer"><span class="pg-num">04</span></div>
-
   </div>
-
 </div>
-
 <div class="page">
-
   <div class="col-left">
     <div class="col-bg-num-clip"><div class="col-bg-num">05</div></div>
     <svg style="position:absolute;top:0;left:0;width:200px;height:1123px;pointer-events:none;z-index:0;overflow:visible;" viewBox="0 0 200 1123" xmlns="http://www.w3.org/2000/svg">
@@ -603,23 +566,22 @@ body {
     </svg>
   </div>
   <div class="col-divider"></div>
-
   <div class="col-right">
-
     <div class="right-running">
       <span class="running-label">Wide Eyes</span>
       <span class="running-chapter">Fokus und Konzentration</span>
     </div>
-
     <div class="right-divider"></div>
-
     <div class="right-bottom">
+
+      <div class="img-placeholder" style="height:100px;">
+        <span class="img-label">Illustration</span>
+        <span class="img-desc">Kompass — rotierende Nadel (Fokusproblem) vs. ruhige Nadel zeigt Norden</span>
+      </div>
 
       <p class="section-heading">Konzentration</p>
 
-      <div class="highlight">
-        <p>Konzentration ist der Weg.</p>
-      </div>
+      <div class="highlight"><p>Konzentration ist der Weg.</p></div>
 
       <p class="body">Stell dir vor du gehst diesen Weg. Der Kompass zeigt klar. Aber dann raschelt es im Gebüsch. Ein Geräusch. Du schaust hin. Dann fängt es an zu regnen. Dann scheint die Sonne auf eine einladende Wiese neben dem Pfad.</p>
 
@@ -638,25 +600,17 @@ body {
 
       <p class="body">Konzentration ohne Fokus ist ein langer Weg der nirgendwohin führt.</p>
 
-      <div class="psych-block">
-        <p>Beides zusammen bringt dich ans Ziel.</p>
-      </div>
+      <div class="psych-block"><p>Beides zusammen bringt dich ans Ziel.</p></div>
 
       <p class="body">Tamaras Kompass war defekt. Die Nadel fand nie ihren Norden. Bei mir zeigte der Kompass klar. Aber ich verlor mich immer wieder auf dem Weg.</p>
 
-      <div class="highlight">
-        <p>Welches Problem hast du?</p>
-      </div>
+      <div class="highlight"><p>Welches Problem hast du?</p></div>
 
       <p class="body">Diese Frage begleitet dich durch dieses Buch. Die Antwort entscheidet welche Teile davon am meisten für dich zählen.</p>
 
     </div>
-
     <div class="right-footer"><span class="pg-num">05</span></div>
-
   </div>
-
 </div>
-
 </body>
 </html>
