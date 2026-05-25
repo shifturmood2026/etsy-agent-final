@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=794, initial-scale=1">
+<title>Shift ur Mood — Vorwort</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --paper:    #F5F1EC;
+  --ink:      #1A1714;
+  --taupe:    #8B7D6B;
+  --rule-c:   rgba(139, 125, 107, 0.26);
+  --box-bg:   #EDE6DA;
+  --box-bdr:  rgba(139, 125, 107, 0.36);
+}
+
+body {
+  background: #D9D3CB;
+  display: flex;
+  justify-content: center;
+  padding: 52px 0 96px;
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+/* ─── PAGE ────────────────────────────────────────── */
+.page {
+  width: 794px;
+  background: var(--paper);
+  padding: 52px 78px 92px;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 6px 28px rgba(0,0,0,0.06),
+    0 28px 72px rgba(0,0,0,0.06),
+    inset 0 0 0 0.5px rgba(139,125,107,0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Warm paper luminance — very subtle */
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 58% 38% at 16% 18%, rgba(255,253,248,0.52) 0%, transparent 100%),
+    radial-gradient(ellipse 42% 52% at 84% 80%, rgba(162,135,105,0.07) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle paper grain */
+.page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page > * { position: relative; z-index: 1; }
+
+/* ─── NAVIGATION ──────────────────────────────────── */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nav-label {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 7.5px;
+  font-weight: 300;
+  letter-spacing: 0.36em;
+  color: var(--taupe);
+  text-transform: uppercase;
+}
+
+/* ─── RULES ───────────────────────────────────────── */
+.h-rule      { height: 0.5px; background: var(--rule-c); }
+.head-rule   { width: 32px; height: 0.6px; background: rgba(139,125,107,0.4); margin: 0 auto; }
+
+/* ─── HEADING ─────────────────────────────────────── */
+.heading-area {
+  padding: 56px 0 24px;
+  text-align: center;
+}
+
+.chapter-tag {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 200;
+  letter-spacing: 0.46em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 74px;
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+/* ─── TEXT COLUMN ─────────────────────────────────── */
+.col {
+  max-width: 452px;
+  margin: 0 auto;
+}
+
+.col-open { margin-top: 50px; }
+
+.col p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--ink);
+  text-align: left;
+  hyphens: auto;
+}
+
+.col p + p { margin-top: 26px; }
+
+/* Isolated centered emotional moment */
+.col p.moment {
+  text-align: center;
+  font-style: italic;
+  font-size: 17px;
+  color: #2B2420;
+  margin: 52px 0;
+}
+
+/* Italic weighted line with surrounding air */
+.col p.weighted {
+  font-style: italic;
+  margin-top: 40px;
+  margin-bottom: 32px;
+}
+
+/* ─── DIAGRAM ─────────────────────────────────────── */
+.diagram-outer {
+  margin: 58px -24px;
+  padding: 36px 24px 40px;
+  border-top: 0.5px solid var(--box-bdr);
+  border-bottom: 0.5px solid var(--box-bdr);
+}
+
+.diagram-head {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 6.5px;
+  font-weight: 300;
+  letter-spacing: 0.48em;
+  color: var(--taupe);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.diagram-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 570px;
+  margin: 0 auto;
+}
+
+.d-block {
+  flex: 1;
+  background: var(--box-bg);
+  border: 0.5px solid var(--box-bdr);
+  padding: 24px 18px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.d-num {
+  display: block;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 6.5px;
+  font-weight: 200;
+  letter-spacing: 0.38em;
+  color: var(--taupe);
+  margin-bottom: 11px;
+}
+
+.d-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 9px;
+}
+
+.d-sub {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 6px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: var(--taupe);
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.d-arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  color: rgba(139, 125, 107, 0.42);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 200;
+}
+
+/* ─── CINEMATIC LINE ──────────────────────────────── */
+p.cinematic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 31px;
+  font-weight: 300;
+  line-height: 1.35;
+  color: var(--ink);
+  text-align: center;
+  margin: 80px auto 62px;
+  max-width: 430px;
+  letter-spacing: 0.012em;
+}
+
+/* ─── WHISPER LINE ────────────────────────────────── */
+p.whisper {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13.5px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(26, 23, 20, 0.46);
+  text-align: center;
+  margin: 56px auto;
+  letter-spacing: 0.12em;
+}
+
+/* ─── FINAL WORD ──────────────────────────────────── */
+p.climax {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 58px;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin: 96px auto 80px;
+  max-width: 600px;
+}
+
+/* ─── FOOTER ──────────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  margin-top: 62px;
+}
+
+.foot-rule { flex: 1; height: 0.5px; background: var(--rule-c); }
+
+.foot-num {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 200;
+  letter-spacing: 0.38em;
+  color: var(--taupe);
+  padding: 0 18px;
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- Navigation corners -->
+  <nav class="nav">
+    <span class="nav-label">Shift ur Mood</span>
+    <span class="nav-label">Vorwort</span>
+  </nav>
+
+  <!-- Thin editorial rule -->
+  <div class="h-rule"></div>
+
+  <!-- Heading -->
+  <div class="heading-area">
+    <div class="chapter-tag">Wide Eyes &nbsp;&mdash;&nbsp; Das Buch</div>
+    <h1>Vorwort</h1>
+    <div class="head-rule"></div>
+  </div>
+
+  <!-- Opening body text -->
+  <div class="col col-open">
+    <p>Manche Momente teilen ein Leben in davor und danach.</p>
+    <p>Bei mir war es eine ruhige Nacht. Kein Unfall. Keine schlechte Nachricht. Kein dramatisches Ereignis.</p>
+    <p class="moment">Ich saß einfach da.</p>
+    <p>Die Jahre davor hatten mich gefordert. Beruflich. Privat. Dauerhaft funktionieren, dauerhaft unter Strom. Und an diesem Abend war es zum ersten Mal still.</p>
+  </div>
+
+  <!-- Editorial psychology diagram -->
+  <div class="diagram-outer">
+    <div class="diagram-head">Phase des Nervensystems</div>
+    <div class="diagram-row">
+      <div class="d-block">
+        <span class="d-num">01</span>
+        <div class="d-name">Akkumulation</div>
+        <div class="d-sub">Dauerhaft<br>unter Strom</div>
+      </div>
+      <div class="d-arrow">&#8594;</div>
+      <div class="d-block">
+        <span class="d-num">02</span>
+        <div class="d-name">Auslöser</div>
+        <div class="d-sub">Unerwartete<br>Stille</div>
+      </div>
+      <div class="d-arrow">&#8594;</div>
+      <div class="d-block">
+        <span class="d-num">03</span>
+        <div class="d-name">Die Zäsur</div>
+        <div class="d-sub">Das<br>&bdquo;Danach&ldquo;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cinematic dominant line -->
+  <p class="cinematic">Dann hörte ich meinen Herzschlag.</p>
+
+  <!-- Whispered counterpoint -->
+  <p class="whisper">Nicht normal.</p>
+
+  <!-- Panic passage + final beats -->
+  <div class="col">
+    <p>Als würde jemand von innen gegen meine Brust hämmern. Hitze schoss meinen Nacken hoch bis hinter die Augen. Mein Körper begann zu zittern. Meine Gedanken rasten zwischen Herzinfarkt und komplettem Kontrollverlust.</p>
+    <p class="weighted">Ich rief den Rettungswagen.</p>
+    <p>Die Untersuchungen ergaben nichts.</p>
+    <p>Dann sagte der Arzt ein Wort das ich bis dahin kaum beachtet hatte.</p>
+  </div>
+
+  <!-- Final emotional frame -->
+  <p class="climax">Psychosomatisch.</p>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="foot-rule"></div>
+    <span class="foot-num">01</span>
+    <div class="foot-rule"></div>
+  </div>
+
+</div>
+</body>
+</html>
