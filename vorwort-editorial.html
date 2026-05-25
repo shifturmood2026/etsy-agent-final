@@ -7,92 +7,102 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --paper:    #F5F1EC;
-  --ink:      #1A1714;
-  --taupe:    #8B7D6B;
-  --rule-c:   rgba(139, 125, 107, 0.26);
-  --box-bg:   #EDE6DA;
-  --box-bdr:  rgba(139, 125, 107, 0.36);
+  --paper:     #F5F1EC;
+  --ink:       #1A1714;
+  --taupe:     #8B7D6B;
+  --taupe-lt:  rgba(139, 125, 107, 0.42);
+  --rule-c:    rgba(139, 125, 107, 0.24);
+  --box-bg:    #ECE4D8;
+  --box-bdr:   rgba(139, 125, 107, 0.32);
+}
+
+html {
+  background: #D6CFC6;
+  min-height: 100%;
 }
 
 body {
-  background: #D9D3CB;
+  background: #D6CFC6;
   display: flex;
   justify-content: center;
-  padding: 52px 0 96px;
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  padding: 64px 0 112px;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* ─── PAGE ────────────────────────────────────────── */
+/* ── PAGE ─────────────────────────────────────────────────── */
 .page {
   width: 794px;
   background: var(--paper);
-  padding: 52px 78px 92px;
+  padding: 54px 96px 104px;
   box-shadow:
-    0 1px 3px rgba(0,0,0,0.04),
-    0 6px 28px rgba(0,0,0,0.06),
-    0 28px 72px rgba(0,0,0,0.06),
-    inset 0 0 0 0.5px rgba(139,125,107,0.12);
+    0 1px 2px  rgba(0, 0, 0, 0.03),
+    0 4px 20px rgba(0, 0, 0, 0.05),
+    0 24px 72px rgba(0, 0, 0, 0.07),
+    inset 0 0 0 0.5px rgba(139, 125, 107, 0.10);
   position: relative;
   overflow: hidden;
 }
 
-/* Warm paper luminance — very subtle */
+/* Warm luminance bloom */
 .page::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 58% 38% at 16% 18%, rgba(255,253,248,0.52) 0%, transparent 100%),
-    radial-gradient(ellipse 42% 52% at 84% 80%, rgba(162,135,105,0.07) 0%, transparent 100%);
+    radial-gradient(ellipse 56% 36% at 14% 16%, rgba(255, 253, 248, 0.56) 0%, transparent 100%),
+    radial-gradient(ellipse 38% 50% at 86% 82%, rgba(158, 130, 100, 0.065) 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Subtle paper grain */
+/* Organic paper grain */
 .page::after {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.032;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
 }
 
 .page > * { position: relative; z-index: 1; }
 
-/* ─── NAVIGATION ──────────────────────────────────── */
+/* ── NAVIGATION ───────────────────────────────────────────── */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .nav-label {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 7.5px;
-  font-weight: 300;
-  letter-spacing: 0.36em;
+  font-size: 7px;
+  font-weight: 200;
+  letter-spacing: 0.38em;
   color: var(--taupe);
   text-transform: uppercase;
 }
 
-/* ─── RULES ───────────────────────────────────────── */
-.h-rule      { height: 0.5px; background: var(--rule-c); }
-.head-rule   { width: 32px; height: 0.6px; background: rgba(139,125,107,0.4); margin: 0 auto; }
+/* ── RULES ────────────────────────────────────────────────── */
+.h-rule     { height: 0.5px; background: var(--rule-c); }
+.head-rule  { width: 28px; height: 0.5px; background: rgba(139, 125, 107, 0.38); margin: 0 auto; }
+.mid-rule   { width: 100%; height: 0.5px; background: var(--rule-c); margin: 0; }
 
-/* ─── HEADING ─────────────────────────────────────── */
+/* ── HEADING ──────────────────────────────────────────────── */
 .heading-area {
-  padding: 56px 0 24px;
+  padding: 62px 0 28px;
   text-align: center;
 }
 
@@ -103,59 +113,66 @@ body {
   letter-spacing: 0.46em;
   color: var(--taupe);
   text-transform: uppercase;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 h1 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 74px;
+  font-size: 76px;
   font-weight: 300;
   color: var(--ink);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   line-height: 1;
-  margin-bottom: 30px;
-}
-
-/* ─── TEXT COLUMN ─────────────────────────────────── */
-.col {
-  max-width: 452px;
-  margin: 0 auto;
-}
-
-.col-open { margin-top: 50px; }
-
-.col p {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 15.5px;
-  font-weight: 300;
-  line-height: 1.9;
-  color: var(--ink);
-  text-align: left;
-  hyphens: auto;
-}
-
-.col p + p { margin-top: 26px; }
-
-/* Isolated centered emotional moment */
-.col p.moment {
-  text-align: center;
-  font-style: italic;
-  font-size: 17px;
-  color: #2B2420;
-  margin: 52px 0;
-}
-
-/* Italic weighted line with surrounding air */
-.col p.weighted {
-  font-style: italic;
-  margin-top: 40px;
   margin-bottom: 32px;
 }
 
-/* ─── DIAGRAM ─────────────────────────────────────── */
+/* ── TEXT COLUMN ──────────────────────────────────────────── */
+.col {
+  max-width: 448px;
+  margin: 0 auto;
+}
+
+.col-open { margin-top: 56px; }
+
+.col p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 16.5px;
+  font-weight: 400;
+  line-height: 1.92;
+  color: var(--ink);
+  text-align: left;
+  hyphens: auto;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+.col p + p { margin-top: 28px; }
+
+/* "Ich saß einfach da." — isolated editorial statement */
+.col p.moment {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  text-align: center;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  color: #2F2522;
+  margin: 64px 0;
+  line-height: 1.5;
+}
+
+/* "Ich rief den Rettungswagen." — weighted, breathing */
+.col p.weighted {
+  font-style: italic;
+  font-size: 16.5px;
+  color: #3C2F28;
+  margin-top: 48px;
+  margin-bottom: 44px;
+}
+
+/* ── DIAGRAM ──────────────────────────────────────────────── */
 .diagram-outer {
-  margin: 58px -24px;
-  padding: 36px 24px 40px;
+  margin: 68px -28px 72px;
+  padding: 40px 28px 44px;
   border-top: 0.5px solid var(--box-bdr);
   border-bottom: 0.5px solid var(--box-bdr);
 }
@@ -163,12 +180,12 @@ h1 {
 .diagram-head {
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 6.5px;
-  font-weight: 300;
-  letter-spacing: 0.48em;
+  font-weight: 200;
+  letter-spacing: 0.50em;
   color: var(--taupe);
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .diagram-row {
@@ -183,98 +200,95 @@ h1 {
   flex: 1;
   background: var(--box-bg);
   border: 0.5px solid var(--box-bdr);
-  padding: 24px 18px 22px;
+  padding: 26px 20px 24px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
 }
 
 .d-num {
   display: block;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 6.5px;
+  font-size: 6px;
   font-weight: 200;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.40em;
   color: var(--taupe);
-  margin-bottom: 11px;
+  margin-bottom: 12px;
 }
 
 .d-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--ink);
   line-height: 1.2;
-  margin-bottom: 9px;
+  margin-bottom: 10px;
+  letter-spacing: 0.01em;
 }
 
 .d-sub {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 6px;
-  font-weight: 300;
-  letter-spacing: 0.22em;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  font-weight: 400;
   color: var(--taupe);
-  line-height: 1.8;
-  text-transform: uppercase;
+  line-height: 1.55;
 }
 
+/* Thin SVG arrow connector */
 .d-arrow {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  padding: 0 13px;
-  color: rgba(139, 125, 107, 0.42);
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 200;
+  justify-content: center;
+  padding: 0 10px;
 }
 
-/* ─── CINEMATIC LINE ──────────────────────────────── */
+/* ── CINEMATIC LINE ───────────────────────────────────────── */
 p.cinematic {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 31px;
+  font-size: 34px;
   font-weight: 300;
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--ink);
   text-align: center;
-  margin: 80px auto 62px;
-  max-width: 430px;
-  letter-spacing: 0.012em;
+  margin: 88px auto 68px;
+  max-width: 420px;
+  letter-spacing: 0.015em;
 }
 
-/* ─── WHISPER LINE ────────────────────────────────── */
+/* ── WHISPER LINE ─────────────────────────────────────────── */
 p.whisper {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 13.5px;
+  font-size: 15px;
   font-style: italic;
   font-weight: 300;
-  color: rgba(26, 23, 20, 0.46);
+  color: rgba(26, 23, 20, 0.40);
   text-align: center;
-  margin: 56px auto;
-  letter-spacing: 0.12em;
+  margin: 62px auto 76px;
+  letter-spacing: 0.14em;
+  line-height: 1;
 }
 
-/* ─── FINAL WORD ──────────────────────────────────── */
+/* ── FINAL WORD ───────────────────────────────────────────── */
 p.climax {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 58px;
+  font-size: 66px;
   font-weight: 300;
-  font-style: normal;
   color: var(--ink);
   text-align: center;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   line-height: 1;
-  margin: 96px auto 80px;
+  margin: 108px auto 96px;
   max-width: 600px;
 }
 
-/* ─── FOOTER ──────────────────────────────────────── */
+/* ── FOOTER ───────────────────────────────────────────────── */
 .footer {
   display: flex;
   align-items: center;
-  margin-top: 62px;
+  margin-top: 72px;
 }
 
 .foot-rule { flex: 1; height: 0.5px; background: var(--rule-c); }
@@ -285,7 +299,7 @@ p.climax {
   font-weight: 200;
   letter-spacing: 0.38em;
   color: var(--taupe);
-  padding: 0 18px;
+  padding: 0 20px;
 }
 </style>
 </head>
@@ -302,14 +316,14 @@ p.climax {
   <!-- Thin editorial rule -->
   <div class="h-rule"></div>
 
-  <!-- Heading -->
+  <!-- Chapter heading -->
   <div class="heading-area">
     <div class="chapter-tag">Wide Eyes &nbsp;&mdash;&nbsp; Das Buch</div>
     <h1>Vorwort</h1>
     <div class="head-rule"></div>
   </div>
 
-  <!-- Opening body text -->
+  <!-- Opening body -->
   <div class="col col-open">
     <p>Manche Momente teilen ein Leben in davor und danach.</p>
     <p>Bei mir war es eine ruhige Nacht. Kein Unfall. Keine schlechte Nachricht. Kein dramatisches Ereignis.</p>
@@ -321,33 +335,49 @@ p.climax {
   <div class="diagram-outer">
     <div class="diagram-head">Phase des Nervensystems</div>
     <div class="diagram-row">
+
       <div class="d-block">
         <span class="d-num">01</span>
         <div class="d-name">Akkumulation</div>
         <div class="d-sub">Dauerhaft<br>unter Strom</div>
       </div>
-      <div class="d-arrow">&#8594;</div>
+
+      <div class="d-arrow">
+        <svg width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="7" x2="22" y2="7" stroke="rgba(139,125,107,0.40)" stroke-width="0.5"/>
+          <polyline points="18,3.5 22,7 18,10.5" fill="none" stroke="rgba(139,125,107,0.40)" stroke-width="0.5"/>
+        </svg>
+      </div>
+
       <div class="d-block">
         <span class="d-num">02</span>
         <div class="d-name">Auslöser</div>
         <div class="d-sub">Unerwartete<br>Stille</div>
       </div>
-      <div class="d-arrow">&#8594;</div>
+
+      <div class="d-arrow">
+        <svg width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="7" x2="22" y2="7" stroke="rgba(139,125,107,0.40)" stroke-width="0.5"/>
+          <polyline points="18,3.5 22,7 18,10.5" fill="none" stroke="rgba(139,125,107,0.40)" stroke-width="0.5"/>
+        </svg>
+      </div>
+
       <div class="d-block">
         <span class="d-num">03</span>
         <div class="d-name">Die Zäsur</div>
         <div class="d-sub">Das<br>&bdquo;Danach&ldquo;</div>
       </div>
+
     </div>
   </div>
 
-  <!-- Cinematic dominant line -->
+  <!-- Cinematic dominant -->
   <p class="cinematic">Dann hörte ich meinen Herzschlag.</p>
 
-  <!-- Whispered counterpoint -->
+  <!-- Whisper -->
   <p class="whisper">Nicht normal.</p>
 
-  <!-- Panic passage + final beats -->
+  <!-- Panic passage -->
   <div class="col">
     <p>Als würde jemand von innen gegen meine Brust hämmern. Hitze schoss meinen Nacken hoch bis hinter die Augen. Mein Körper begann zu zittern. Meine Gedanken rasten zwischen Herzinfarkt und komplettem Kontrollverlust.</p>
     <p class="weighted">Ich rief den Rettungswagen.</p>
@@ -355,7 +385,7 @@ p.climax {
     <p>Dann sagte der Arzt ein Wort das ich bis dahin kaum beachtet hatte.</p>
   </div>
 
-  <!-- Final emotional frame -->
+  <!-- Final cinematic word -->
   <p class="climax">Psychosomatisch.</p>
 
   <!-- Footer -->
